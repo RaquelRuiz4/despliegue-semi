@@ -1,5 +1,27 @@
 #! /bin/bash
-STACK_NAME=ubuinstance
+STACK_NAME=bucketaws
+REGION=us-east-1
+CLI_PROFILE=default
+
+EC2_INSTANCE_TYPE=t2.micro
+
+echo -e "\n=========== Desplegando  setup.yml ================="
+
+aws cloudformation deploy \
+	--region $REGION \
+	--profile $CLI_PROFILE \
+	--stack-name $STACK_NAME-setup \
+	--template-file setup.yml \
+	--no-fail-on-empty-changeset \
+	--capabilities CAPABILITY_NAMED_IAM \
+
+    if [$? -eq 0]; then
+		aws cloudformation list-exports \
+		--profile default \
+		--query "Exports[?Name=='EndPoint'].Value" 
+
+#! /bin/bash
+STACK_NAME=ubuinstance1
 REGION=us-east-1
 CLI_PROFILE=default
 
