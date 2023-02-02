@@ -19,6 +19,7 @@ aws cloudformation deploy \
 		aws cloudformation list-exports \
 		--profile default \
 		--query "Exports[?Name=='EndPoint'].Value" 
+	fi
 
 #! /bin/bash
 STACK_NAME=ubuinstance1
@@ -41,4 +42,5 @@ aws cloudformation deploy \
 	if [$? -eq 0]; then
 		aws cloudformation list-exports \
 		--profile default \
-		--query "Exports[?Name=='EndPoint'].Value" 
+		--query "Exports[?Name=='EndPoint'].Value"
+	fi
