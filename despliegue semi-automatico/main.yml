@@ -211,8 +211,8 @@ Resources:
   Type: AWS::CodeDeploy::DeploymentGroup 
   Properties:
     ApplicationName: 
-      Ref: CodeDeployR
-    DeploymentGroupName: !Ref DeployDaw
+      Ref: ww
+    DeploymentGroupName: !Ref wwe
       Ec2TagFilters:
         - Key: !Ref Name
           Value: !Ref AWS::StackName
